@@ -63,11 +63,25 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+  1. Error Message
+  ```POST http://localhost:4000/toys 500 (Internal Server Error)``` hence the problem is in the server
+  ```NameError (uninitialized constant ToysController::Toys):```
+  2. Solution
+     Changed the name of 'Toys.create' to 'Toy.create'
 
 - Update the number of likes for a toy
 
   - How I debugged:
+  1. Error Message
+  ```Uncaught (in promise) SyntaxError: Unexpected end of JSON input```
+  2. Solution
+     Added a render json: toy in the ToysControllers#update 
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+  1. Error Message
+  ```ActionController::RoutingError (No route matches [DELETE] "/toys/1"):```
+  2. Solution
+     Added a :destroy route for deleteing a toy
+  
